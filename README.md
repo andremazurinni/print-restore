@@ -84,7 +84,9 @@ pip install pyinstaller==6.22.2 pyusb==1.3.1 libusb-package==1.0.30.0 pypdfium2=
 pyinstaller --clean capt_print.spec
 ```
 
-Подробности в [`BUILD.txt`](BUILD.txt). Мастер установки собирается в Inno Setup 7 из `LBP1120_InnoSetup.iss`.
+Подробности в [`BUILD.txt`](BUILD.txt).
+
+Мастер установки собирается в Inno Setup 7 из [`installer/LBP1120_InnoSetup.iss`](installer/LBP1120_InnoSetup.iss). Картинки мастера (иконка, кадры анимации) в репозиторий не входят: для сборки положите свои в `assets\` или уберите эти строки из раздела `[Files]`. Бинарные файлы WinUSB (libusb, WDF) тоже не выкладываются: их даёт [libwdi](https://github.com/pbatard/libwdi).
 
 ---
 

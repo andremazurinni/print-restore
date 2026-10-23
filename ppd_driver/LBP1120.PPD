@@ -1,0 +1,233 @@
+*PPD-Adobe: "4.2"
+*% Adobe Systems PostScript(R) Printer Description File
+*% Copyright 1995 Microsoft Corporation.
+*% All Rights Reserved.
+*% Permission is granted for redistribution of this file as
+*% long as this copyright notice is intact and the contents
+*% of the file is not altered in any way from its original form.
+*% End of Copyright statement
+*% Canon LBP-1120 (CAPT) via PostScript: based on Microsoft MSGENBW.PPD (generic grayscale
+*% imagesetter) with extra quality options read by the CAPT print script (capt_print_redmon).
+*FormatVersion: "4.2"
+*FileVersion: "1.2"
+*PCFileName: "LBP1120.PPD"
+*LanguageVersion: English
+*Product: "()"
+*PSVersion: "(52.3) 320"
+*% Product and PSVersion are meaningless in this generic PPD.
+*ModelName: "Canon LBP-1120 (CAPT)"
+*NickName: "Canon LBP-1120 (CAPT)"
+*ShortNickName: "Canon LBP-1120 (CAPT)"
+
+*% General Information and Defaults ===============
+*FreeVM: "175500"
+*LanguageLevel: "1"
+*% Not a color printer, but tells driver to generate color code.
+*ColorDevice: True
+*Extensions: FileSystem CMYK
+*FileSystem: True
+
+*% Print quality options (same set as the Quality tab of the original Canon driver).
+*% The options carry no PostScript code: the CAPT script reads the %%BeginFeature lines.
+*% Settings mode: Standard ignores every quality option below (safe defaults from settings.ini),
+*% Manual applies them. Windows remembers the choice and the values (per user/application).
+*% Short option names on purpose: the Windows settings tree cuts long lines (14.10.2026).
+*% Settings mode: Standard ignores the options marked (Manual); Manual applies them. Quick preset works in both modes
+*% and overrides the other options. Replaced (resets counter!) resets the cartridge sheet counter - set back to Keep.
+*OpenUI *CaptMode/Settings mode: PickOne
+*OrderDependency: 19 AnySetup *CaptMode
+*DefaultCaptMode: Standard
+*CaptMode Standard/Standard (recommended): ""
+*CaptMode Manual/Manual: ""
+*CloseUI: *CaptMode
+
+*OpenUI *CaptCartridge/Cartridge counter: PickOne
+*OrderDependency: 19 AnySetup *CaptCartridge
+*DefaultCaptCartridge: Keep
+*CaptCartridge Keep/Keep: ""
+*CaptCartridge Replaced/Replaced (resets counter!): ""
+*CloseUI: *CaptCartridge
+
+*OpenUI *CaptPreset/Quick preset (overrides below): PickOne
+*OrderDependency: 19 AnySetup *CaptPreset
+*DefaultCaptPreset: None
+*CaptPreset None/None: ""
+*CaptPreset Text/Text: ""
+*CaptPreset Photo/Photo: ""
+*CaptPreset Saver/Toner saver: ""
+*CaptPreset Draft/Draft: ""
+*CloseUI: *CaptPreset
+
+*OpenUI *CaptDuplex/Manual duplex: PickOne
+*OrderDependency: 19 AnySetup *CaptDuplex
+*DefaultCaptDuplex: Off
+*CaptDuplex Off/Off: ""
+*CaptDuplex On/On (flip stack like a book): ""
+*CloseUI: *CaptDuplex
+
+*OpenUI *Resolution/Resolution (Manual): PickOne
+*OrderDependency: 20 AnySetup *Resolution
+*DefaultResolution: 600dpi
+*Resolution 600dpi/600 dpi: ""
+*Resolution 300dpi/300 dpi (fast): ""
+*CloseUI: *Resolution
+
+*OpenUI *CaptHalftone/Halftoning (Manual): PickOne
+*OrderDependency: 21 AnySetup *CaptHalftone
+*DefaultCaptHalftone: Auto
+*CaptHalftone Auto/Auto: ""
+*CaptHalftone Pattern1/Pattern 1: ""
+*CaptHalftone Ordered/Fine pattern: ""
+*CaptHalftone Smooth/Smooth: ""
+*CaptHalftone None/None (text only): ""
+*CloseUI: *CaptHalftone
+
+*OpenUI *CaptDensity/Toner Density (Manual): PickOne
+*OrderDependency: 22 AnySetup *CaptDensity
+*DefaultCaptDensity: Normal
+*CaptDensity Lightest/Lightest: ""
+*CaptDensity Light/Light: ""
+*CaptDensity Normal/Normal: ""
+*CaptDensity Dark/Dark: ""
+*CaptDensity Darkest/Darkest: ""
+*CloseUI: *CaptDensity
+
+*OpenUI *CaptTonerSaver/Toner Saver (Manual): Boolean
+*OrderDependency: 23 AnySetup *CaptTonerSaver
+*DefaultCaptTonerSaver: False
+*CaptTonerSaver False/Off: ""
+*CaptTonerSaver True/On: ""
+*CloseUI: *CaptTonerSaver
+
+*OpenUI *CaptRefinement/Image Refinement (Manual): Boolean
+*OrderDependency: 24 AnySetup *CaptRefinement
+*DefaultCaptRefinement: True
+*CaptRefinement False/Off: ""
+*CaptRefinement True/On: ""
+*CloseUI: *CaptRefinement
+
+*OpenUI *CaptBrightness/Brightness (Manual): PickOne
+*OrderDependency: 25 AnySetup *CaptBrightness
+*DefaultCaptBrightness: Zero
+*CaptBrightness Minus100/-100%: ""
+*CaptBrightness Minus90/-90%: ""
+*CaptBrightness Minus80/-80%: ""
+*CaptBrightness Minus70/-70%: ""
+*CaptBrightness Minus60/-60%: ""
+*CaptBrightness Minus50/-50%: ""
+*CaptBrightness Minus40/-40%: ""
+*CaptBrightness Minus30/-30%: ""
+*CaptBrightness Minus20/-20%: ""
+*CaptBrightness Minus10/-10%: ""
+*CaptBrightness Zero/0%: ""
+*CaptBrightness Plus10/+10%: ""
+*CaptBrightness Plus20/+20%: ""
+*CaptBrightness Plus30/+30%: ""
+*CaptBrightness Plus40/+40%: ""
+*CaptBrightness Plus50/+50%: ""
+*CaptBrightness Plus60/+60%: ""
+*CaptBrightness Plus70/+70%: ""
+*CaptBrightness Plus80/+80%: ""
+*CaptBrightness Plus90/+90%: ""
+*CaptBrightness Plus100/+100%: ""
+*CloseUI: *CaptBrightness
+
+*OpenUI *CaptContrast/Contrast (Manual): PickOne
+*OrderDependency: 26 AnySetup *CaptContrast
+*DefaultCaptContrast: Zero
+*CaptContrast Minus100/-100%: ""
+*CaptContrast Minus90/-90%: ""
+*CaptContrast Minus80/-80%: ""
+*CaptContrast Minus70/-70%: ""
+*CaptContrast Minus60/-60%: ""
+*CaptContrast Minus50/-50%: ""
+*CaptContrast Minus40/-40%: ""
+*CaptContrast Minus30/-30%: ""
+*CaptContrast Minus20/-20%: ""
+*CaptContrast Minus10/-10%: ""
+*CaptContrast Zero/0%: ""
+*CaptContrast Plus10/+10%: ""
+*CaptContrast Plus20/+20%: ""
+*CaptContrast Plus30/+30%: ""
+*CaptContrast Plus40/+40%: ""
+*CaptContrast Plus50/+50%: ""
+*CaptContrast Plus60/+60%: ""
+*CaptContrast Plus70/+70%: ""
+*CaptContrast Plus80/+80%: ""
+*CaptContrast Plus90/+90%: ""
+*CaptContrast Plus100/+100%: ""
+*CloseUI: *CaptContrast
+
+*% Paper Handling ===================
+*% These page sizes are not supported by all printers.
+*OpenUI *PageSize: PickOne
+*OrderDependency: 30 AnySetup *PageSize
+*DefaultPageSize: A4
+*PageSize A4: "a4"
+*PageSize A5: "a5"
+*PageSize A6: "a6"
+*PageSize A7/A7 (74x105, experimental): "a7"
+*CloseUI: *PageSize
+
+*OpenUI *PageRegion: PickOne
+*OrderDependency: 40 AnySetup *PageRegion
+*DefaultPageRegion: A4
+*PageRegion A4: "a4"
+*PageRegion A5: "a5"
+*PageRegion A6: "a6"
+*PageRegion A7/A7 (74x105, experimental): "a7"
+*CloseUI: *PageRegion
+
+*% The following entries provide information about specific paper keywords.
+*DefaultImageableArea: A4
+*% 30.09.2026: real printable area measured on the printer (llx lly urx ury, points, origin = bottom-left).
+*% The first ~5 mm of the leading edge cannot be printed (raster starts 120 px @600 dpi below it);
+*% 05.10.2026: A4 now also prints 1:1 across the full width (like A5); A4, A5 and custom sizes print 1:1 with a
+*% 2 mm clear strip at the left, right and bottom edges.
+*ImageableArea A4: "5.7 5.7 589.3 827.6"
+*ImageableArea A5: "5.7 5.7 414.3 580.6"
+*ImageableArea A6: "5.7 5.7 291.9 404.8"
+*ImageableArea A7/A7 (74x105, experimental): "5.7 5.7 204.1 282.9"
+
+*% These provide the physical dimensions of the paper (by keyword)
+*DefaultPaperDimension: A4
+*PaperDimension A4: "595 842"
+*PaperDimension A5: "420 595"
+*PaperDimension A6: "298 420"
+*PaperDimension A7/A7 (74x105, experimental): "210 298"
+
+*% Custom Page Sizes -- discards HeightOffset, currently doesn't allow WidthOffset
+*CustomPageSize True: "exch pop statusdict /setpageparams get exec"
+*% 30.09.2026: real printer limits. Windows puts the LONG edge into "Width" (100x150 mm ->
+*% Width 425 pt, Height 283 pt), so Width = 127..297 mm, Height = 76..210 mm.
+*ParamCustomPageSize Width: 1 points 360 842
+*ParamCustomPageSize Height: 2 points 216 595
+*ParamCustomPageSize WidthOffset/Margins: 3 points 0 0
+*ParamCustomPageSize HeightOffset: 4 points 0 0
+*ParamCustomPageSize Orientation: 5 int 0 1
+
+*% This machine is roll-fed or tray handling is limited.
+*OpenUI *InputSlot: PickOne
+*OrderDependency: 20 AnySetup *InputSlot
+*DefaultInputSlot: Cassette
+*InputSlot Cassette/Tray: ""
+*CloseUI: *InputSlot
+
+*RequiresPageRegion All: True
+
+*% Font Information =====================
+
+*DefaultFont: Courier
+*Font Courier: Standard "(001.004)" Standard ROM
+*Font Courier-Bold: Standard "(001.004)" Standard ROM
+*Font Courier-BoldOblique: Standard "(001.004)" Standard ROM
+*Font Courier-Oblique: Standard "(001.004)" Standard ROM
+*Font Helvetica: Standard "(001.002)" Standard ROM
+*Font Helvetica-Bold: Standard "(001.002)" Standard ROM
+*Font Helvetica-BoldOblique: Standard "(001.002)" Standard ROM
+*Font Helvetica-Oblique: Standard "(001.002)" Standard ROM
+*Font Symbol: Special "(001.003)" Special ROM
+*Font Times-Bold: Standard "(001.002)" Standard ROM
+*Font Times-BoldItalic: Standard "(001.004)" Standard ROM
+*Font Times-Italic: Standard "(001.002)" Standard ROM
+*Font Times-Roman: Standard "(001.002)" Standard ROM

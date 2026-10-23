@@ -1,0 +1,41 @@
+; Canon LBP-1120 (CAPT) - PostScript printer driver package with quality options.
+; Based on the structure of the Windows inbox prnge001.inf (MS Publisher Imagesetter):
+; the driver core is the inbox PSCRIPT5 core, this package only adds LBP1120.PPD.
+; DriverVer date is deliberately old (same as the inbox one): InboxVersionRequired=UseDriverVer
+; needs the inbox core to be NOT OLDER than this package (date is compared first).
+
+[Version]
+Signature="$Windows NT$"
+Provider="LBP1120 CAPT project"
+ClassGUID={4D36E979-E325-11CE-BFC1-08002BE10318}
+Class=Printer
+CatalogFile=LBP1120PS.cat
+DriverVer=06/21/2006,1.2.0.0
+
+[Manufacturer]
+"Canon-CAPT"=CaptCanon,NTamd64
+
+[CaptCanon.NTamd64]
+"Canon LBP-1120 (CAPT)" = LBP1120.PPD,CaptCanonLBP1120_PS_A7E1,Canon_LBP1120_CAPT_PS
+
+[LBP1120.PPD]
+CopyFiles=@LBP1120.PPD
+DataFile=LBP1120.PPD
+CoreDriverSections="{D20EA372-DD35-4950-9ED8-A6335AFE79F1},PSCRIPT.OEM,PSCRIPT_DATA"
+
+[DestinationDirs]
+DefaultDestDir=66000
+
+[SourceDisksFiles]
+LBP1120.PPD = 1
+
+[PrinterPackageInstallation.amd64]
+PackageAware=TRUE
+CoreDriverDependencies={D20EA372-DD35-4950-9ED8-A6335AFE79F1}
+InboxVersionRequired=UseDriverVer
+
+[SourceDisksNames.amd64]
+1 = %Disk1%,,,""
+
+[Strings]
+Disk1="Canon LBP-1120 CAPT driver files"

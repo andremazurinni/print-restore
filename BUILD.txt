@@ -1,0 +1,35 @@
+Print Restore v55 - как собрать capt_print.exe из исходников
+=============================================================
+
+capt_print.exe - это те же файлы .py из этой папки, упакованные PyInstaller.
+Лицензия: GNU GPL v2 (файл COPYING).
+
+1. Установите Python 3.12 (python.org, 64-bit).
+2. В командной строке:
+     pip install pyinstaller==6.22.2 pyusb==1.3.1 libusb-package==1.0.30.0 pypdfium2==5.14.0 pillow==12.3.0 numpy==2.5.1 Windows-Toasts==1.3.1
+3. Перейдите в эту папку и выполните:
+     pyinstaller --clean capt_print.spec
+4. Готовый файл: dist\capt_print.exe. Замените им capt_print.exe в
+   C:\Program Files\CaptPrinter (служба печати должна быть остановлена или
+   принтер не должен печатать в этот момент).
+
+Точка входа - capt_print_redmon.py. Протокол CAPT - capt_print2.py,
+подготовка страниц - capt_print_pdf.py, счётчик - capt_counter.py.
+
+
+How to build capt_print.exe from source
+---------------------------------------
+
+capt_print.exe is the .py files from this folder packed with PyInstaller.
+License: GNU GPL v2 (see COPYING).
+
+1. Install Python 3.12 (python.org, 64-bit).
+2. In a command prompt:
+     pip install pyinstaller==6.22.2 pyusb==1.3.1 libusb-package==1.0.30.0 pypdfium2==5.14.0 pillow==12.3.0 numpy==2.5.1 Windows-Toasts==1.3.1
+3. Go to this folder and run:
+     pyinstaller --clean capt_print.spec
+4. The result is dist\capt_print.exe. Replace capt_print.exe in
+   C:\Program Files\CaptPrinter with it (make sure nothing is printing).
+
+Entry point: capt_print_redmon.py. CAPT protocol: capt_print2.py,
+page preparation: capt_print_pdf.py, page counter: capt_counter.py.
