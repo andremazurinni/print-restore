@@ -13,14 +13,16 @@ Canon так и не выпустила 64-битный драйвер для э
 ## Как проходит страница
 
 ```mermaid
-flowchart LR
-  A[Word, браузер,<br/>любая программа] -->|Ctrl+P| B[PostScript-драйвер Windows<br/>+ свой PPD]
-  B --> C[Порт RPT1:<br/>Redmon]
-  C -->|stdin| D[capt_print.exe]
-  D --> E[Ghostscript<br/>PS → PDF]
-  E --> F[pypdfium2<br/>растр 600 dpi]
-  F --> G[Полутона<br/>серое → 1 бит]
-  G --> H[Сжатие CAPT<br/>≤ 2,1 МБ на лист]
+flowchart TB
+  subgraph win [Windows]
+    direction LR
+    A[Word, браузер,<br/>любая программа] -->|Ctrl+P| B[PostScript-драйвер<br/>+ свой PPD] --> C[Порт RPT1:<br/>Redmon]
+  end
+  subgraph drv [capt_print.exe]
+    direction LR
+    E[Ghostscript<br/>PS → PDF] --> F[Растр<br/>600 dpi] --> G[Полутона<br/>серое → 1 бит] --> H[Сжатие CAPT<br/>≤ 2,1 МБ на лист]
+  end
+  C -->|stdin| E
   H -->|WinUSB| I[(LBP-1120 / LBP-810)]
 ```
 
@@ -88,7 +90,7 @@ pyinstaller --clean capt_print.spec
 
 ## Благодарности и лицензии
 
-- **Протокольное ядро:** Nicolas Boichat, на основе работы Rildo Pragana. GNU GPL v2. Этот проект распространяется на тех же условиях, см. [`COPYING`](COPYING).
+- **Протокольное ядро:** Nicolas Boichat, на основе работы Rildo Pragana. GNU GPL v2. Этот проект распространяется на тех же условиях, см. [`LICENSE`](LICENSE).
 - **Ghostscript** (Artifex, AGPL) скачивается при установке и в репозиторий не входит.
 - **RedMon** (Ghostgum Software, GPL) — монитор портов печати.
 - **libwdi / libusb** — WinUSB-драйвер, лицензии в `usb_driver/license`.
